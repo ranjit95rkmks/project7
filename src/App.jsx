@@ -7,19 +7,28 @@ import List from "./component/List";
 
 const App = () => {
   const [items, setItems] = useState([
-    { id: 1, text: 'Item 1' },
-    { id: 2, text: 'Item 2' },
-    { id: 3, text: 'Item 3' },
+    {  name: "",
+    email: "",
+    message: "", 
+    id: 12
+  }
   ]);
   
   const handleDelete = (id) => {
     setItems(items.filter(item => item.id !== id));
   };
 
+  const addItem = (data) =>{
+    setItems(oldItems =>({
+      ...oldItems,
+      ...data
+    }))
+  }
+
   return (
     <div>
       {/* Other components or content */}
-      <ContactForm items={items} />
+      <ContactForm addItem={addItem} />
 
       <List items={items} handleDelete={handleDelete}/>
     </div>

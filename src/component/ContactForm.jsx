@@ -6,6 +6,7 @@ const ContactForm = ({ addItem }) => {
     name: "",
     email: "",
     message: "",
+    id: ""
   });
 
   const [errors, setErrors] = useState({});
@@ -37,6 +38,7 @@ const ContactForm = ({ addItem }) => {
     // If there are no validation errors, you can proceed with form submission or other actions
     if (Object.keys(validationErrors).length === 0) {
       // Perform form submission or other actions here
+      formData.id = Date.now();
       addItem(formData);
       setFormData("");
       console.log("Form submitted:", formData);
