@@ -6,23 +6,17 @@ import List from "./component/List";
 
 
 const App = () => {
-  const [items, setItems] = useState([
-    {  name: "",
-    email: "",
-    message: "", 
-    id: 12
-  }
-  ]);
+  const [items, setItems] = useState([]);
   
   const handleDelete = (id) => {
     setItems(items.filter(item => item.id !== id));
   };
 
   const addItem = (data) =>{
-    setItems(oldItems =>({
+    setItems(oldItems =>([
       ...oldItems,
-      ...data
-    }))
+      data
+    ]))
   }
 
   return (
